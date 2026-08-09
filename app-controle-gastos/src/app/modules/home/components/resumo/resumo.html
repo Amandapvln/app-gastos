@@ -1,0 +1,66 @@
+<section class="content-resumo">
+  <header>
+    <div>
+      <h1>Resumo Financeiro</h1>
+      <p>Veja quanto você gastou e quanto recebeu</p>
+    </div>
+  </header>
+
+  @if (isLoading) {
+    <p class="content-resumo__loading">Carregando resumo...</p>
+  }
+
+  <div class="content-resumo__cards">
+    <article class="content-resumo__card content-resumo__card--entrada">
+      <span>Receitas</span>
+      <strong>R${{ totalReceitas | number:'1.2-2' }}</strong>
+    </article>
+
+    <article class="content-resumo__card content-resumo__card--saida">
+      <span>Gastos</span>
+      <strong>R${{ totalGastos | number:'1.2-2' }}</strong>
+    </article>
+
+    <article class="content-resumo__card content-resumo__card--saldo" [class.positivo]="saldo >= 0" [class.negativo]="saldo < 0">
+      <span>Saldo</span>
+      <strong>R${{ saldo | number:'1.2-2' }}</strong>
+    </article>
+  </div>
+
+  <section class="content-resumo__chart" aria-labelledby="resumo-gastos-titulo">
+    <div class="content-resumo__chart-header">
+      <div>
+        <h2 id="resumo-gastos-titulo">Gastos por categoria</h2>
+        <p>Distribuição do total registrado</p>
+      </div>
+      <span>{{ categorias.length }} categorias</span>
+    </div>
+
+    <div class="content-resumo__legend" aria-label="Legenda do gráfico">
+      <span class="content-resumo__legend-item">
+        <span class="content-resumo__legend-swatch" aria-hidden="true"></span>
+        Valor gasto por categoria
+      </span>
+      <span class="content-resumo__legend-item">Percentual = participação no total</span>
+    </div>
+
+    @if (categorias.length) {
+      <div class="content-resumo__bars" role="img" aria-label="Gráfico de gastos por categoria">
+        @for (categoria of categorias; track categoria.nome) {
+          <div class="content-resumo__bar-row">
+            <div class="content-resumo__bar-label">
+              <strong>{{ formatarCategoria(categoria.nome) }}</strong>
+              <span>{{ categoria.participacao | number:'1.0-1' }}%</span>
+            </div>
+            <div class="content-resumo__bar-track">
+              <div class="content-resumo__bar" [style.width.%]="categoria.percentual"></div>
+            </div>
+            <span class="content-resumo__bar-value">R${{ categoria.total | number:'1.2-2' }}</span>
+          </div>
+        }
+      </div>
+    } @else if (!isLoading) {
+      <p class="content-resumo__chart-empty">Adicione um gasto para visualizar o gráfico.</p>
+    }
+  </section>
+</section>

@@ -1,0 +1,55 @@
+<section class="content-investimento">
+    <header>
+        <div>
+            <h1>Adicionar investimento</h1>
+            <p>Reserve uma quantia para investir</p>
+        </div>
+
+        <div class="content-investimento--piggy">
+            <fa-icon [icon]="faPiggyBank" />
+        </div>
+    </header>
+
+    <form [formGroup]="form" class="content-form-investimentos" (ngSubmit)="onSubmit()">
+
+        @if (successMessage) {
+        <div class="alert alert-success">{{ successMessage }}</div>
+        }
+        @if (errorMessage) {
+        <div class="alert alert-error">{{ errorMessage }}</div>
+        }
+        <div>
+            <label for="investimento-valor">Valor</label>
+            <input type="text" id="investimento-valor" name="valor" placeholder="R$ 150,00" formControlName="valor" currencyMask
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+        </div>
+
+        <div>
+            <label for="investimento-categoria">Categoria</label>
+            <select name="categoria" id="investimento-categoria" formControlName="categoria">
+                <option value="">Selecione uma categoria</option>
+                <option value="imovel">Imóvel</option>
+                <option value="viagem">Viagem</option>
+                <option value="carro">Carro</option>
+                <option value="aposentadoria">Aposentadoria</option>
+                <option value="estetica">Estética</option>
+                <option value="outros">Outros</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="investimento-descricao">Descrição (opcional)</label>
+            <input type="text" id="investimento-descricao" name="descricao" placeholder="Ex: Reserva para entrada do imóvel"
+                formControlName="descricao" />
+        </div>
+
+        <div>
+            <label for="investimento-data">Data</label>
+            <input type="date" id="investimento-data" name="data" formControlName="data" />
+        </div>
+
+        <button type="submit" [disabled]="form.invalid || isLoading">
+            {{ isLoading ? 'Adicionando...' : 'Adicionar investimento' }}
+        </button>
+    </form>
+</section>

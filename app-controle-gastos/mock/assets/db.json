@@ -1,0 +1,114 @@
+{
+  "gastos": [
+    {
+      "valor": 257.43,
+      "categoria": "educacao",
+      "descricao": "FIES",
+      "data": "2026-05-03",
+      "id": "AFbcV1BGrQQ"
+    },
+    {
+      "valor": 142.42,
+      "categoria": "educacao",
+      "descricao": "Faculdade",
+      "data": "2026-05-03",
+      "id": "1nf_trpxxI4"
+    },
+    {
+      "valor": 788.46,
+      "categoria": "imposto",
+      "descricao": "INSS",
+      "data": "2026-05-01",
+      "id": "Do7aQCcTYzE"
+    },
+    {
+      "valor": 657.66,
+      "categoria": "imposto",
+      "descricao": "IRPF",
+      "data": "2026-05-01",
+      "id": "KozRNGZbGTE"
+    },
+    {
+      "valor": 175,
+      "categoria": "saude",
+      "descricao": "Plano de Saúde",
+      "data": "2026-05-01",
+      "id": "JRwhi0rt58I"
+    },
+    {
+      "valor": 64.2,
+      "categoria": "saude",
+      "descricao": "Wellhub Gympass",
+      "data": "2026-05-03",
+      "id": "yWzLYe2v-uc"
+    },
+    {
+      "valor": 54.84,
+      "categoria": "internet_movel",
+      "descricao": "Claro",
+      "data": "2026-05-03",
+      "id": "yMA5Wl6mg1s"
+    },
+    {
+      "valor": 40.9,
+      "categoria": "aplicativos_stream",
+      "descricao": "Spotfy",
+      "data": "2026-05-03",
+      "id": "Y0tQzuc4vfw"
+    },
+    {
+      "valor": 16.21,
+      "categoria": "transporte",
+      "descricao": "Uber",
+      "data": "2026-05-03",
+      "id": "Zgkh6Qt--iI"
+    },
+    {
+      "valor": 30,
+      "categoria": "lazer",
+      "descricao": "Festa Ed Martinelli",
+      "data": "2026-05-02",
+      "id": "rtDdVmdVwBY"
+    }
+  ],
+  "receitas": [
+    {
+      "valor": 6926,
+      "descricao": "Salário bruto",
+      "categoria": "Salário",
+      "data": "2026-04-03",
+      "id": "cqZmrhP4K78"
+    },
+    {
+      "valor": 115.14,
+      "descricao": "Auxílio Home Office",
+      "categoria": "Outros",
+      "data": "2026-04-10",
+      "id": "cqZmrhP4K79"
+    }
+  ],
+  "investimentos": [
+    {
+      "valor": 1400,
+      "categoria": "imovel",
+      "descricao": "Reserva para Imóvel (IPCA+ 2031)",
+      "data": "2026-05-03",
+      "id": "UqDSp2V6tJw"
+    },
+    {
+      "valor": 500,
+      "categoria": "outros",
+      "descricao": "Reserva de emergência",
+      "data": "2026-05-03",
+      "id": "mGNP1KGD3Sk"
+    },
+    {
+      "valor": 300,
+      "categoria": "imovel",
+      "descricao": "Cartório, Taxas e ITBI (Tesouro Selic)",
+      "data": "2026-05-03",
+      "id": "oiuowIbWXVI"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

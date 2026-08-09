@@ -1,0 +1,76 @@
+<section class="content-gasto">
+  <header>
+    <div>
+      <h1>Adicionar gasto</h1>
+      <p>Registre um novo gasto</p>
+    </div>
+
+    <div class="content-gasto--wallet">
+      <fa-icon [icon]="faWallet" />
+    </div>
+  </header>
+
+  <form 
+    [formGroup]="form"
+    class="content-form-gastos"
+    (ngSubmit)="onSubmit()">
+    
+    @if (successMessage) {
+      <div class="alert alert-success">{{ successMessage }}</div>
+    }
+    @if (errorMessage) {
+      <div class="alert alert-error">{{ errorMessage }}</div>
+    }
+    <div>
+      <label for="gasto-valor">Valor</label>
+      <input 
+        type="text" 
+        id="gasto-valor" 
+        name="valor" 
+        placeholder="R$ 150,00"
+        formControlName="valor"
+        currencyMask
+        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+    </div>
+
+    <div>
+      <label for="gasto-categoria">Categoria</label>
+      <select name="categoria" id="gasto-categoria" formControlName="categoria">
+        <option value="">Selecione uma categoria</option>
+        <option value="alimentacao">Alimentação</option>
+        <option value="transporte">Transporte</option>
+        <option value="cartao_credito">Cartão de Crédito</option>
+        <option value="internet_movel">Internet Móvel</option>
+        <option value="aplicativos_stream">Aplicativos de Stream</option>
+        <option value="moradia">Moradia</option>
+        <option value="lazer">Lazer</option>
+        <option value="saude">Saúde</option>
+        <option value="educacao">Educação</option>
+        <option value="imposto">Imposto</option>
+        <option value="outros">Outros</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="gasto-descricao">Descrição (opcional)</label>
+      <input 
+        type="text" 
+        id="gasto-descricao" 
+        name="descricao"
+        placeholder="Digite uma descrição"
+        maxlength="50"
+        formControlName="descricao" />
+    </div>
+
+    <div>
+      <label for="gasto-data">Data</label>
+      <input 
+        type="date" 
+        id="gasto-data" 
+        name="data"
+        formControlName="data" />
+    </div>
+
+    <button type="submit" [disabled]="isLoading || form.invalid" style="width: 100%;">+ Adicionar gasto</button>
+  </form>
+</section>

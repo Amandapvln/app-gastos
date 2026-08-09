@@ -41,6 +41,16 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Angular
+**/.angular/cache/
+**/dist/
+**/out-tsc/
+**/tmp/
+**/coverage/
+
+# Local development data
+**/mock/assets/db.json.bak
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
