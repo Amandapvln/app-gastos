@@ -25,10 +25,9 @@ O frontend foi desenvolvido com Angular 21 e usa uma API local baseada em `json-
 
 ## Instalacao
 
-Na raiz do repositorio, entre na pasta que contem o `package.json` e instale as dependencias:
+Na raiz do repositorio, instale as dependencias:
 
 ```bash
-cd app-gastos/app-controle-gastos
 npm install
 ```
 
@@ -110,4 +109,4 @@ mock/assets/db.json          Dados iniciais da API mock.
 
 ## Licenca
 
-Este projeto esta disponivel sob a [Licenca MIT](../LICENSE). Consulte o arquivo `LICENSE` para ver os termos completos.
+Este projeto esta disponivel sob a [Licenca MIT](LICENSE). Consulte o arquivo `LICENSE` para ver os termos completos.
