@@ -1,0 +1,50 @@
+<section class="content-historico">
+  <header>
+    <div>
+      <h1>Histórico de transações</h1>
+      <p>Gastos e receitas</p>
+    </div>
+
+    <div class="content-historico--filter">
+      <fa-icon [icon]="faFilter" />
+    </div>
+  </header>
+
+  @if (isLoading) {
+    <p style="text-align: center; padding: 2rem; color: #999;">Carregando histórico...</p>
+  }
+
+  @if (!isLoading && historicoLista.length === 0) {
+    <p style="text-align: center; padding: 2rem; color: #999;">Nenhuma transação registrada ainda</p>
+  }
+
+  @for (item of historicoLista; track item.id) {
+    <article class="content-historico-item">
+      <div
+        class="content-historico-item--icon"
+        [class.receita]="item.tipo === 'receita'"
+        [class.investimento]="item.tipo === 'investimento'">
+        <fa-icon
+          [icon]="getIconByCategoria(item.categoria)"
+          class="content-historico-item--icon-svg"
+        />
+      </div>
+      <div class="content-historico-item--info">
+        <strong>{{ item.descricao }}</strong>
+        <p class="content-historico-item--categoria">{{ item.categoria }}</p>
+        <p class="content-historico-item--data">{{ item.data | date:'dd/MM/yyyy' }}</p>
+      </div>
+      <div class="content-historico-item--actions">
+        <p 
+          class="content-historico-item--valor"
+          [class]="item.tipo === 'receita' ? 'positivo' : 'negativo'">
+          {{ item.tipo === 'receita' ? '+' : '-' }} R${{ item.valor | number:'1.2-2' }}
+        </p>
+        <button 
+          (click)="deleteItem(item)" 
+          class="content-historico-item--delete"
+          title="Deletar">×</button>
+      </div>
+    </article>
+  }
+</section>
